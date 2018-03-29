@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 	//this code will execute after the DOM is loaded
 	var carouselList = $('#carousel ul');
 
@@ -12,4 +12,20 @@ $(function(){
 			carouselList.css({marginLeft:0});
 		});
 	});
+});*/
+
+$(function(){
+	//this code will execute after the DOM is loaded
+	var carouselList = $('#carousel ul');
+
+	setInterval(function() {
+		$(carouselList).animate({
+			'marginLeft': -500
+		}, 500, function moveFirstSlide() {
+			var firstItem = carouselList.find('li:first');
+			var lastItem = carouselList.find('li:last');
+			lastItem.after(firstItem)
+			carouselList.css({marginLeft:0});
+		});
+	}, 3000);
 });
